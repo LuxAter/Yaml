@@ -1,0 +1,17 @@
+[
+    {
+        "arguments": [
+            "c++", 
+            "-c", 
+            "-I/home/arden/Programming/libraries/yaml/include", 
+            "-I/home/arden/Programming/libraries/yaml/external/googletest/googletest/include", 
+            "-std=c++11", 
+            "-w", 
+            "-o", 
+            "/home/arden/Programming/libraries/yaml/build/test/./test_yaml.o", 
+            "test_yaml.cpp"
+        ], 
+        "directory": "/home/arden/Programming/libraries/yaml/test", 
+        "file": "test_yaml.cpp"
+    }
+]
