@@ -1,8 +1,6 @@
 site_name: Yaml
 theme: 'material'
 extra:
-  feature:
-    tabs: true
   palette:
     primary: 'blue'
     accent: 'green'
@@ -29,3 +27,7 @@ repo_name: 'Yaml'
 repo_url: 'https://github.com/LuxAtrumStudio/Yaml'
 pages:
   - 'Home': 'index.md'
+  - 'Reference':
+    - 'Home': 'ref/index.md'
+    - 'Enumerators': 'ref/enum.md'
+    - 'Yaml Class': 'ref/yaml.md'

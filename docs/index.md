@@ -2,7 +2,6 @@
 
 ---
 
-
 [![Github Tag](https://img.shields.io/github/tag/LuxAtrumStudio/Yaml.svg)](https://github.com/LuxAtrumStudio/Yaml)
 [![Github Pages](https://img.shields.io/badge/Documentation-gh--pages-blue.svg)](https://luxatrumstudio.github.io/Yaml/)
 
@@ -14,4 +13,33 @@
 
 ## Introduction ##
 
-Yaml is a header only file for parsing and interpreting yaml files. 
+Yaml is a header only project intended for creating and parsing yaml files from
+C++ projects. The project is intended to be as similar to standard library
+containers as possible, in order to make a simple transition.
+
+## Installation ##
+
+The yaml project can be installed with these commands
+
+```
+git clone https://github.com/LuxAtrumStudio/Yaml.git
+cd Yaml
+make install
+```
+
+## Usage ##
+
+Inorder to use the yaml project, only a single header file must be included
+like so:
+
+```cpp
+#include<yaml/yaml.hpp>
+```
+
+Then Yaml classes can be defined with:
+
+```cpp
+yaml::Yaml myYaml;
+```
+
+More reference can be found at [Reference](reference.md)
