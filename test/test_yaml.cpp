@@ -34,6 +34,11 @@ TEST_F(YamlTest, DefaultConstructor) {
   EXPECT_EQ(y1_.size(), 0);
 }
 
+TEST_F(YamlTest, Elements) {
+  EXPECT_EQ(y1_.empty(), true);
+  EXPECT_EQ(y2_.size(), 7);
+}
+
 TEST_F(YamlTest, PushBackValue) {
   y1_.push_back(2017);
   y1_.push_back(3.1415);
@@ -79,7 +84,7 @@ TEST_F(YamlTest, Find) {
   EXPECT_EQ(y2_.find("list.4.sub-list.1").get_int(), 4061);
 }
 
-TEST_F(YamlTest, GetString) {
+TEST_F(YamlTest, String) {
   std::string y2_str = y2_.String();
   std::string match =
       "a: 2017\n"
