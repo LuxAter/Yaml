@@ -41,5 +41,3 @@ Then Yaml classes can be defined with:
 ```cpp
 yaml::Yaml myYaml;
 ```
-
-More reference can be found at [Reference](reference.md)
