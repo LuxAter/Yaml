@@ -1,5 +1,7 @@
 #include "yaml.hpp"
 
+#include <iostream>
+
 #include <fstream>
 #include <string>
 
@@ -80,7 +82,7 @@ TEST_F(YamlTest, Size) {
 TEST_F(YamlTest, Find) {
   EXPECT_EQ(y2_.find("list"), y2_["list"]);
   EXPECT_EQ(y2_.find("f.int").get_int(), 1998);
-  EXPECT_EQ(y2_("list.sub-dic.b").get_int(), 1604);
+  EXPECT_EQ(y2_("list.3.sub-dic.b").get_int(), 1604);
   EXPECT_EQ(y2_.find("list.4.sub-list.1").get_int(), 4061);
 }
 
