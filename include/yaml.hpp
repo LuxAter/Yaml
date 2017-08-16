@@ -43,6 +43,7 @@ namespace yaml {
           type_(copy.type_) {}
 
     Yaml(std::map<std::string, Yaml> value) : hash_(value), type_(HASH) {}
+    Yaml(std::string key, Yaml value) : hash_{{key, value}}, type_(HASH) {}
     Yaml(std::vector<Yaml> value) : list_(value), type_(LIST) {}
     Yaml(bool value) : bool_(value), type_(BOOL) {}
     Yaml(double value) : float_(value), type_(FLOAT) {}
@@ -258,15 +259,7 @@ namespace yaml {
       } else if (type_ == INT) {
         out << int_;
       } else if (type_ == STRING) {
-        std::string sub;
-        for (int i = 0; i < string_.size(); i++) {
-          if (string_[i] == '\n') {
-            sub += "\n" + std::string(level * 2, ' ');
-          } else {
-            sub += string_[i];
-          }
-        }
-        out << sub;
+        out << string_;
       }
       return out.str();
     }
@@ -405,8 +398,12 @@ namespace yaml {
       std::string name, value;
       getline(ss, name, ':');
       getline(ss, value);
+      bool sub_values = false;
+      if (lines[i].back() == ':') {
+        sub_values = true;
+      }
       if (name.size() > 2 && name[0] == '-' && name[1] == ' ' &&
-          value == std::string()) {
+          value == std::string() && sub_values == false) {
         name.erase(name.begin(), name.begin() + 2);
         yaml.push_back(name);
       } else if (value == std::string()) {
@@ -424,7 +421,12 @@ namespace yaml {
         i--;
         TrimString(name);
         Yaml chunk = LoadVector(sub_set);
-        yaml[name] = chunk;
+        if (name.size() > 2 && name[0] == '-' && name[1] == ' ') {
+          name.erase(name.begin(), name.begin() + 2);
+          yaml.push_back(Yaml(name, chunk));
+        } else {
+          yaml[name] = chunk;
+        }
       } else {
         TrimString(name);
         TrimString(value);

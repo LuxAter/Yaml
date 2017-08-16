@@ -1,0 +1,21 @@
+a: 2017
+b: 3.1415
+c: string
+d: const char*
+e: true
+f:
+  bool: false
+  double: 19.98
+  int: 1998
+  string: 1998
+list:
+  - 0
+  - 1
+  - 2
+  - sub-dic:
+    a: 1
+    b: 1604
+    c: This is a long string Still going.
+  - sub-list:
+    - sub-list-0
+    - 4061

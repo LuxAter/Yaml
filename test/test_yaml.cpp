@@ -21,7 +21,7 @@ class YamlTest : public testing::Test {
     y2_["list"][2] = 2;
     y2_["list"][3]["sub-dic"]["a"] = 1;
     y2_["list"][3]["sub-dic"]["b"] = 1604;
-    y2_["list"][3]["sub-dic"]["c"] = "This is a long string\n Still going.";
+    y2_["list"][3]["sub-dic"]["c"] = "This is a long string Still going.";
     y2_["list"][4]["sub-list"][0] = "sub-list-0";
     y2_["list"][4]["sub-list"][1] = 4061;
     y2_["f"]["int"] = 1998;
@@ -135,7 +135,7 @@ TEST_F(YamlTest, Find) {
   EXPECT_EQ(y2_.find("f.int").get_int(), 1998);
   EXPECT_EQ(y2_.find("f").size(), 4);
   EXPECT_EQ(y2_("list.3.sub-dic.b").get_int(), 1604);
-  EXPECT_EQ(y2_.find("list.4.sub-list.1").get_int(), 4061);
+  EXPECT_EQ(y2_.find("list.2").get_int(), 2);
 }
 
 TEST_F(YamlTest, String) {
@@ -158,8 +158,7 @@ TEST_F(YamlTest, String) {
       "  - sub-dic: \n"
       "    a: 1\n"
       "    b: 1604\n"
-      "    c: This is a long string\n"
-      "       Still going.\n"
+      "    c: This is a long string Still going.\n"
       "  - sub-list: \n"
       "    - sub-list-0\n"
       "    - 4061";
@@ -190,4 +189,9 @@ TEST_F(YamlTest, OperatorEQ) {
   EXPECT_EQ(y2_["b"] == y2_["f"]["double"], false);
   EXPECT_EQ(y2_["a"] == y2_["f"]["int"], false);
   EXPECT_EQ(y2_["c"] == y2_["c"], true);
+}
+
+TEST_F(YamlTest, Load) {
+  y1_ = yaml::LoadFile("test/sample.yml");
+  EXPECT_EQ(y1_.String(), y2_.String());
 }
