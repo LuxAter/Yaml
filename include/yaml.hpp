@@ -335,8 +335,6 @@ namespace yaml {
         return lhs.get_int() == rhs.get_int();
       } else if (lhs.is_string() == true) {
         return lhs.get_string() == rhs.get_string();
-      } else {
-        return true;
       }
     }
   }
