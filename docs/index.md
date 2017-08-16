@@ -41,3 +41,39 @@ Then Yaml classes can be defined with:
 ```cpp
 yaml::Yaml myYaml;
 ```
+
+### Example ###
+
+Here is a fully functioning example of the yaml library.
+
+```cpp
+#include <iostream>
+
+#include <yaml/yaml.hpp>
+
+int main(void){
+  yaml::Yaml data;
+  data["user"]["name"] = "John";
+  data["user"]["skill"] = "Expert";
+  data["user"]["languages"]= {"C++", "Python", "Bash", "html", "JavaScript"};
+
+  std::cout << data << std::endl;
+  return 0;
+}
+```
+
+This will create a yaml object of the following format
+
+```yaml
+user:
+  languages:
+    - C++
+    - Python
+    - Bash
+    - Html
+    - JavaScript
+  name: John
+  skill: Expert
+```
+
+Then this structure is printed to the output terminal.
