@@ -1,0 +1,84 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Yaml\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction\n\n\nYaml is a header only project intended for creating and parsing yaml files from\nC++ projects. The project is intended to be as similar to standard library\ncontainers as possible, in order to make a simple transition.\n\n\nInstallation\n\n\nThe yaml project can be installed with these commands\n\n\ngit clone https://github.com/LuxAtrumStudio/Yaml.git\ncd Yaml\nmake install\n\n\n\n\nUsage\n\n\nInorder to use the yaml project, only a single header file must be included\nlike so:\n\n\n#include\nyaml/yaml.hpp\n\n\n\n\n\nThen Yaml classes can be defined with:\n\n\nyaml\n::\nYaml\n \nmyYaml\n;\n\n\n\n\n\nExample\n\n\nHere is a fully functioning example of the yaml library.\n\n\n#include\n \niostream\n\n\n\n#include\n \nyaml/yaml.hpp\n\n\n\nint\n \nmain\n(\nvoid\n){\n\n  \nyaml\n::\nYaml\n \ndata\n;\n\n  \ndata\n[\nuser\n][\nname\n]\n \n=\n \nJohn\n;\n\n  \ndata\n[\nuser\n][\nskill\n]\n \n=\n \nExpert\n;\n\n  \ndata\n[\nuser\n][\nlanguages\n]\n=\n \n{\nC++\n,\n \nPython\n,\n \nBash\n,\n \nhtml\n,\n \nJavaScript\n};\n\n\n  \nstd\n::\ncout\n \n \ndata\n \n \nstd\n::\nendl\n;\n\n  \nreturn\n \n0\n;\n\n\n}\n\n\n\n\n\nThis will create a yaml object of the following format\n\n\nuser\n:\n\n  \nlanguages\n:\n\n    \n-\n \nC++\n\n    \n-\n \nPython\n\n    \n-\n \nBash\n\n    \n-\n \nHtml\n\n    \n-\n \nJavaScript\n\n  \nname\n:\n \nJohn\n\n  \nskill\n:\n \nExpert\n\n\n\n\n\nThen this structure is printed to the output terminal.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#yaml", 
+            "text": "", 
+            "title": "Yaml"
+        }, 
+        {
+            "location": "/#introduction", 
+            "text": "Yaml is a header only project intended for creating and parsing yaml files from\nC++ projects. The project is intended to be as similar to standard library\ncontainers as possible, in order to make a simple transition.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "The yaml project can be installed with these commands  git clone https://github.com/LuxAtrumStudio/Yaml.git\ncd Yaml\nmake install", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#usage", 
+            "text": "Inorder to use the yaml project, only a single header file must be included\nlike so:  #include yaml/yaml.hpp   Then Yaml classes can be defined with:  yaml :: Yaml   myYaml ;", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/#example", 
+            "text": "Here is a fully functioning example of the yaml library.  #include   iostream  #include   yaml/yaml.hpp  int   main ( void ){ \n   yaml :: Yaml   data ; \n   data [ user ][ name ]   =   John ; \n   data [ user ][ skill ]   =   Expert ; \n   data [ user ][ languages ] =   { C++ ,   Python ,   Bash ,   html ,   JavaScript }; \n\n   std :: cout     data     std :: endl ; \n   return   0 ;  }   This will create a yaml object of the following format  user : \n   languages : \n     -   C++ \n     -   Python \n     -   Bash \n     -   Html \n     -   JavaScript \n   name :   John \n   skill :   Expert   Then this structure is printed to the output terminal.", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/ref/", 
+            "text": "Reference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEnumerators", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/ref/#reference", 
+            "text": "Enumerators", 
+            "title": "Reference"
+        }, 
+        {
+            "location": "/ref/enum/", 
+            "text": "Enumerators\n\n\nValueType\n\n\n\n\n\n\n\n\nEnumeration\n\n\nValue\n\n\n\n\n\n\n\n\n\n\nNONE\n\n\n0\n\n\n\n\n\n\nHASH\n\n\n1\n\n\n\n\n\n\nLIST\n\n\n2\n\n\n\n\n\n\nBOOL\n\n\n3\n\n\n\n\n\n\nFLOAT\n\n\n4\n\n\n\n\n\n\nINT\n\n\n5\n\n\n\n\n\n\nSTRING\n\n\n6\n\n\n\n\n\n\n\n\nValues used to determin what type of value the Yaml class contains.", 
+            "title": "Enumerators"
+        }, 
+        {
+            "location": "/ref/enum/#enumerators", 
+            "text": "", 
+            "title": "Enumerators"
+        }, 
+        {
+            "location": "/ref/enum/#valuetype", 
+            "text": "Enumeration  Value      NONE  0    HASH  1    LIST  2    BOOL  3    FLOAT  4    INT  5    STRING  6     Values used to determin what type of value the Yaml class contains.", 
+            "title": "ValueType"
+        }, 
+        {
+            "location": "/ref/yaml/", 
+            "text": "Yaml Class\n\n\nDefined in header \nyaml/yaml.hpp\n\n\nclass\n \nYaml\n;\n\n\n\n\n\nyaml::Yaml\n is a structured class, that mimics yaml file structure. This class\ncan either be a single type value (\nbool\n, \nfloat\n, \nint\n, \nstring\n), or it can\nbe an ordered list of values (\nstd::vector\n), or it can be a sorted list of\nassociated pairs (\nstd::map\n).\n\n\nMember Types\n\n\n\n\n\n\n\n\nMember type\n\n\nDefinition\n\n\n\n\n\n\n\n\n\n\nhash_type_\n\n\nstd::map\nstd::string,Yaml\n\n\n\n\n\n\nlist_type_\n\n\nstd::vector\nYaml\n\n\n\n\n\n\nbool_type_\n\n\nbool\n\n\n\n\n\n\nfloat_type_\n\n\nfloat\n\n\n\n\n\n\nint_type_\n\n\nint\n\n\n\n\n\n\nstring_type_\n\n\nstd::string\n\n\n\n\n\n\nreference\n\n\nYaml\n\n\n\n\n\n\nconst_reference\n\n\nconst Yaml\n\n\n\n\n\n\n\n\nMember functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(constructor)\n\n\nconstructs the yaml\n\n\n\n\n\n\n(destructor)\n\n\ndestructs the yaml\n\n\n\n\n\n\noperator=\n\n\nassigns value to container\n\n\n\n\n\n\nString\n\n\nreturns string representation of yaml\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nElement access\n\n\n\n\n\n\n\n\n\n\n\n\nat\n\n\naccess specified element with bounds checks\n\n\n\n\n\n\noperator[ ]\n\n\naccess specified element\n\n\n\n\n\n\noperator( )\n\n\nfinds specified element with bounds checks\n\n\n\n\n\n\nget_hash\n\n\nreturns hash value of yaml\n\n\n\n\n\n\nget_list\n\n\nreturns list value of yaml\n\n\n\n\n\n\nget_bool\n\n\nreturns bool value of yaml\n\n\n\n\n\n\nget_float\n\n\nreturns float value of yaml\n\n\n\n\n\n\nget_int\n\n\nreturns int value of yaml\n\n\n\n\n\n\nget_string\n\n\nreturns string value of yaml\n\n\n\n\n\n\nget_type\n\n\nreturns the type value of the yaml\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChecks\n\n\n\n\n\n\n\n\n\n\n\n\nis_valid\n\n\nchecks if yaml is valid\n\n\n\n\n\n\nis_hash\n\n\nchecks if yaml is a hash\n\n\n\n\n\n\nis_list\n\n\nchecks if yaml is a list\n\n\n\n\n\n\nis_bool\n\n\nchecks if yaml is a bool\n\n\n\n\n\n\nis_float\n\n\nchecks if yaml is a float\n\n\n\n\n\n\nis_int\n\n\nchecks if yaml is a int\n\n\n\n\n\n\nis_string\n\n\nchecks if yaml is a string\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapacity\n\n\n\n\n\n\n\n\n\n\n\n\nempty\n\n\nchecks whether the container is empty\n\n\n\n\n\n\nsize\n\n\nreturns number of elements\n\n\n\n\n\n\nmax_size\n\n\nreturns maximum posible number of elements\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModifiers\n\n\n\n\n\n\n\n\n\n\n\n\nclear\n\n\nclears the contents\n\n\n\n\n\n\ninsert\n\n\ninserts elements or nodes\n\n\n\n\n\n\npush_back\n\n\nadds element or node to the end\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLookup\n\n\n\n\n\n\n\n\n\n\n\n\naccess\n\n\nfinds element with specific key without creating new elements\n\n\n\n\n\n\nfind\n\n\nfinds element with specific key\n\n\n\n\n\n\n\n\nNon-member functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\noperator\n\n\noutputs string representation of yaml to ostream\n\n\n\n\n\n\nSetValue\n\n\nsets yaml from string representation of value\n\n\n\n\n\n\nTrimString\n\n\nremoves spaces from ends of string\n\n\n\n\n\n\nGetIndent\n\n\ngets the number of indentation characters\n\n\n\n\n\n\nTrimIndent\n\n\nremoves indentation characters\n\n\n\n\n\n\nLoadVector\n\n\ncreates yaml from vector of strings\n\n\n\n\n\n\nLoadString\n\n\ncreates yaml from string representation\n\n\n\n\n\n\nLoadFile\n\n\ncreates yaml from yaml file", 
+            "title": "Yaml Class"
+        }, 
+        {
+            "location": "/ref/yaml/#yaml-class", 
+            "text": "Defined in header  yaml/yaml.hpp  class   Yaml ;   yaml::Yaml  is a structured class, that mimics yaml file structure. This class\ncan either be a single type value ( bool ,  float ,  int ,  string ), or it can\nbe an ordered list of values ( std::vector ), or it can be a sorted list of\nassociated pairs ( std::map ).", 
+            "title": "Yaml Class"
+        }, 
+        {
+            "location": "/ref/yaml/#member-types", 
+            "text": "Member type  Definition      hash_type_  std::map std::string,Yaml    list_type_  std::vector Yaml    bool_type_  bool    float_type_  float    int_type_  int    string_type_  std::string    reference  Yaml    const_reference  const Yaml", 
+            "title": "Member Types"
+        }, 
+        {
+            "location": "/ref/yaml/#member-functions", 
+            "text": "(constructor)  constructs the yaml    (destructor)  destructs the yaml    operator=  assigns value to container    String  returns string representation of yaml        Element access       at  access specified element with bounds checks    operator[ ]  access specified element    operator( )  finds specified element with bounds checks    get_hash  returns hash value of yaml    get_list  returns list value of yaml    get_bool  returns bool value of yaml    get_float  returns float value of yaml    get_int  returns int value of yaml    get_string  returns string value of yaml    get_type  returns the type value of the yaml        Checks       is_valid  checks if yaml is valid    is_hash  checks if yaml is a hash    is_list  checks if yaml is a list    is_bool  checks if yaml is a bool    is_float  checks if yaml is a float    is_int  checks if yaml is a int    is_string  checks if yaml is a string        Capacity       empty  checks whether the container is empty    size  returns number of elements    max_size  returns maximum posible number of elements        Modifiers       clear  clears the contents    insert  inserts elements or nodes    push_back  adds element or node to the end        Lookup       access  finds element with specific key without creating new elements    find  finds element with specific key", 
+            "title": "Member functions"
+        }, 
+        {
+            "location": "/ref/yaml/#non-member-functions", 
+            "text": "operator  outputs string representation of yaml to ostream    SetValue  sets yaml from string representation of value    TrimString  removes spaces from ends of string    GetIndent  gets the number of indentation characters    TrimIndent  removes indentation characters    LoadVector  creates yaml from vector of strings    LoadString  creates yaml from string representation    LoadFile  creates yaml from yaml file", 
+            "title": "Non-member functions"
+        }
+    ]
+}
