@@ -192,6 +192,31 @@ TEST_F(YamlTest, OperatorEQ) {
 }
 
 TEST_F(YamlTest, Load) {
+  std::string match_a =
+      "a: 2017\n"
+      "b: 3.1415\n"
+      "c: string\n"
+      "d: const char*\n"
+      "e: true\n"
+      "f:\n"
+      "  bool: false\n"
+      "  double: 19.98\n"
+      "  int: 1998\n"
+      "  string: 1998\n"
+      "list:\n"
+      "  - 0\n"
+      "  - 1\n"
+      "  - 2\n"
+      "  - sub-dic:\n"
+      "    a: 1\n"
+      "    b: 1604\n"
+      "    c: This is a long string Still going.\n"
+      "  - sub-list:\n"
+      "    - sub-list-0\n"
+      "    - 4061\n";
   y1_ = yaml::LoadFile("test/sample.yml");
+  EXPECT_EQ(y1_.String(), y2_.String());
+  y1_.clear();
+  y1_ = yaml::LoadString(match_a);
   EXPECT_EQ(y1_.String(), y2_.String());
 }

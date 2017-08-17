@@ -1,6 +1,8 @@
 #ifndef YAML_BASIC_YAML_HPP
 #define YAML_BASIC_YAML_HPP
 
+#include <iostream>
+
 #include <algorithm>
 #include <fstream>
 #include <map>
@@ -367,7 +369,12 @@ namespace yaml {
   int TrimString(std::string& str, std::string character = " ") {
     size_t str_begin = str.find_first_not_of(character);
     size_t str_end = str.find_last_not_of(character);
-    std::string trimed = str.substr(str_begin, str_end - str_begin + 1);
+    std::string trimed;
+    if (str_begin > str.size() || str_end > str.size()) {
+      trimed = str;
+    } else {
+      trimed = str.substr(str_begin, str_end - str_begin + 1);
+    }
     int diff = str.size() - trimed.size();
     str = trimed;
     return diff;
@@ -388,7 +395,9 @@ namespace yaml {
         str_begin = limit;
       }
     }
-    str = str.substr(str_begin, str.size() - str_begin + 1);
+    if (str_begin < str.size()) {
+      str = str.substr(str_begin, str.size() - str_begin + 1);
+    }
   }
 
   Yaml LoadVector(std::vector<std::string> lines) {
