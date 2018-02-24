@@ -9,7 +9,7 @@
 [![CodeCov](https://img.shields.io/codecov/c/github/LuxAtrumStudio/Yaml/development.svg)](https://codecov.io/gh/LuxAtrumStudio/Yaml)
 [![Codacy Grade](https://img.shields.io/codacy/grade/6245acd81a924d53a26a7eda45bc4073.svg)](https://www.codacy.com/app/LuxAtrumStudio/Yaml)
 
----
+--------------------------------------------------------------
 
 ## Introduction ##
 
@@ -52,13 +52,13 @@ Here is a fully functioning example of the yaml library.
 #include <yaml/yaml.hpp>
 
 int main(void){
-  yaml::Yaml data;
-  data["user"]["name"] = "John";
-  data["user"]["skill"] = "Expert";
-  data["user"]["languages"]= {"C++", "Python", "Bash", "html", "JavaScript"};
+yaml::Yaml data;
+data["user"]["name"] = "John";
+data["user"]["skill"] = "Expert";
+data["user"]["languages"]= {"C++", "Python", "Bash", "html", "JavaScript"};
 
-  std::cout << data << std::endl;
-  return 0;
+std::cout << data << std::endl;
+return 0;
 }
 ```
 
@@ -66,14 +66,15 @@ This will create a yaml object of the following format
 
 ```yaml
 user:
-  languages:
+languages:
     - C++
     - Python
     - Bash
     - Html
     - JavaScript
-  name: John
-  skill: Expert
-```
+    name: John
+    skill: Expert
 
-Then this structure is printed to the output terminal.
+    ```
+
+    Then this structure is printed to the output terminal.
